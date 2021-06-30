@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+}
+
+.axon{
+    fill: #56B4E9;
+}
+.dendrite{
+    fill: #009E73;
+}
+.glia{
+    fill: #D55E00;
+}
+.x-axis{
+    font-size: 15px;
+}
+.x-label {
+    font-size: 15px;
+}
+

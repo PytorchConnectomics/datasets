@@ -1,0 +1,8 @@
+neuron,size,type
+SNEMI,6.095,axon
+SNEMI,6.095,dendrite
+SNEMI,6.095,glia
+CREMI,5.271,axon
+CREMI,5.271,dendrite
+CREMI,5.271,glia
+AxonEM,31.818,axon

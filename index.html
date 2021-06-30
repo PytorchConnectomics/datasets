@@ -1,1 +1,255 @@
-welcome
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connectomics Bazaar</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<link rel="stylesheet" href="index.css" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>Welcome to Electron Microscopy Connectomics Bazaar!</h1>
+    <br/><br/><br/><br/>
+	<table align="center">
+		<tr>
+            <td style="background-color:#FFF9B0;text-align:center;"><strong style="font-size:24px;">Low-resolution</strong>&nbsp;&nbsp;</td>
+            <td style="background-color:#FFEEEE;text-align:center;" colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-size:24px;">High-resolution</strong></td>
+		</tr>
+		<tr>
+            <td align="center"><button class="sel" id="b0">Dense Reconstruction</button></td>
+            <td><button class="sel" id="b1" style="background-color:#FFC300">Dense Cell Reconstruction</button></td>
+            <td><button class="sel" id="b2">Sparse Neuron Reconstruction</button></td>
+            <td><button class="sel" id="b3">Dense Organelle Reconstruction</button></td>
+		</tr>
+	</table>
+    <div align="center" id="canvas"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module">
+        // global variable
+        var svg = d3.select("#canvas");
+        var width, height;
+        var x, y;
+        // for mouse interaction
+        var tooltip, mouseover, mousemove, mouseleave;
+        // for shape drawing
+        var shapeBandwidth, shapeMargin, shapeSize, square, circle, cross;
+
+        function addAxis(){
+            // setup axis
+            let tickValues = [5,10,50,100,500,1000]
+            y = d3.scaleLinear()
+                .range([0, height])
+                .domain([0, shapeBandwidth * 3]);
+
+            x = d3.scaleLog()
+                .range([0, width])
+                .domain([tickValues[0], tickValues[tickValues.length-1]]);
+            let xAxis = d3.axisBottom()
+                .scale(x)
+                .tickValues(tickValues)
+                .tickFormat(d3.format("d"));
+            let xAxisGroup = svg.append("g")
+                .attr("class", "x-axis axis");
+            xAxisGroup = svg.select(".x-axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+            let xAxisSvg = svg.select('.x-axis path.domain')
+                .attr('marker-end', 'url(#arrowhead-right)');
+            let tmpD = xAxisSvg.attr("d");
+            xAxisSvg.attr("d", tmpD.substring(0, tmpD.length - 2));
+            svg.append("text")
+                .attr("class", "x-label")
+                .attr("text-anchor", "end")
+                .attr("x", width + 20)
+                .attr("y", height - 20)
+                .text("Side length") 
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("x", width)
+                .attr("y", height - 6)
+                .text("(um)") 
+        }
+
+        function addMouseInteraction(){
+            // mouse interaction
+            tooltip = d3.select("#canvas")
+                .append("div")
+                .style("opacity", 0)
+                .attr("class", "tooltip")
+                .style("background-color", "white")
+                .style("border", "solid")
+                .style("border-width", "2px")
+                .style("border-radius", "5px")
+                .style("padding", "5px")
+                .style("max-width", "300px");
+
+            mouseover = function(event, d) {
+                tooltip
+                    .style("opacity", 1)
+                d3.select(this)
+                    .style("stroke", "black")
+                    .style("opacity", 1)
+            }
+            mousemove = function(event, d) {
+                tooltip
+                    .html(d.reference)
+                    .style("left", (event.x + 10) + "px")
+                    .style("top", (event.y) + "px")
+            }
+            mouseleave = function(event, d) {
+                tooltip
+                    .style("opacity", 0)
+                d3.select(this)
+                    .style("stroke", "none")
+                    .style("opacity", 0.8)
+            }
+        }
+        function addSymbol(){
+            shapeBandwidth = 50;
+            shapeMargin = 0.1;
+            shapeSize = shapeBandwidth * 0.4;
+            square = d3.symbol().type(d3.symbolSquare).size(shapeSize * shapeSize);
+            circle = d3.symbol().type(d3.symbolCircle).size(shapeSize * shapeSize);
+            cross = d3.symbol().type(d3.symbolCross).size(shapeSize * shapeSize * 5 / 9);
+        }
+        function canvasSetup(){
+            // canvas setup
+            let svgWidth = 800, svgHeight = 300;
+            let margin = {top: 100, right: 80, bottom: 40, left: 90};
+            width = svgWidth - margin.left - margin.right,
+            height = svgHeight - margin.top - margin.bottom;
+            svg.append("svg")
+                .append("g")
+                .attr("width", svgWidth)
+                .attr("height", svgHeight)
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .append('defs')
+                .append('marker')
+                .attr('id', 'arrowhead-right')
+                .attr('refX', 5)
+                .attr('refY', 5)
+                .attr('markerWidth', 16)
+                .attr('markerHeight', 13)
+                .append('path')
+                .attr('d', 'M 0 0 L 5 5 L 0 10')
+                .attr('stroke', 'black')
+                .attr('stroke-width', 1)
+                .attr('fill', 'none');
+
+            addSymbol();
+            addAxis();
+            addMouseInteraction();
+        }
+        
+        canvasSetup();
+
+        const data = await d3.csv("./data.csv", (d) => {
+            return {
+                neuron: d.neuron,
+                size: parseFloat(d.size),
+                height: parseInt(d.height),
+                axon: parseInt(d.axon),
+                dendrite: parseInt(d.dendrite),
+                glia: parseInt(d.glia),
+                reference: d.reference,
+                link: d.link
+            }
+        });
+
+
+        function updatePlot(){
+            // load data
+            let bars = svg.selectAll(".neuron-text")
+                .remove()
+                .exit()
+                .data(data);
+
+            let gbars = bars.enter()
+                .append("g")
+                .attr("class", d => "g-" + d.neuron);
+
+            gbars.append("text")
+                .attr("class", "neuron-text")
+                .attr("text-anchor", "middle")
+                .attr("x", d => x(d.size))
+                .attr("y", d => y(d.height * shapeBandwidth))
+                .text(d => d.neuron)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .on("click", (event, d) => {
+                    window.open(d.link, '_blank').focus();
+                });
+
+            gbars.append("g")
+                .attr("class", d => "shapes-" + d.neuron);
+
+            // add symbol
+            for(let i = 0; i < data.length; i++){
+                let thisData = data[i];
+                let shapeG = d3.select("." + "shapes-" + thisData.neuron);
+                if(thisData.axon === 1){
+                    shapeG.append("path")
+                        .attr("d", square)
+                        .attr("class", "axon")
+                        .attr("transform", "translate(" + (shapeSize * 0.5) + "," + (shapeSize / 2) + ")");
+                }
+                if(thisData.dendrite === 1){
+                    shapeG.append("path")
+                        .attr("d", circle)
+                        .attr("class", "dendrite")
+                        .attr("transform", "translate(" + (shapeSize * (0.5 + (1+shapeMargin))) + "," + (shapeSize / 2) + ")");
+                }
+                if(thisData.glia === 1){
+                    shapeG.append("path")
+                        .attr("d", cross)
+                        .attr("class", "glia")
+                        .attr("transform", "translate(" + (shapeSize * (0.5 + (1+shapeMargin) * 2)) + "," + (shapeSize / 2) + ")");
+                }
+                shapeG.attr("transform", d => "translate(" + (x(d.size) - shapeG.node().getBBox().width/2) + "," + (y(d.height * shapeBandwidth) + shapeBandwidth * 0.1) + ")");
+            }
+        }
+    function updateLegend(){
+        let legendShapeMargin = 2;
+        let legend = svg.append("g");
+        let textYOffset = shapeSize * 1.8;
+        legend.append("text")
+            .text("axon")
+            .attr("class", "axon")
+            .attr("text-anchor", "middle")
+            .attr("transform", "translate(" + (shapeSize * 0.5) + "," + textYOffset + ")");
+        legend.append("path")
+            .attr("d", square)
+            .attr("class", "axon")
+            .attr("transform", "translate(" + (shapeSize * 0.5) + "," + (shapeSize / 2) + ")");
+        legend.append("text")
+            .text("dendrite")
+            .attr("class", "dendrite")
+            .attr("text-anchor", "middle")
+            .attr("transform", "translate(" + (shapeSize * (0.5 + (1+legendShapeMargin)))  + "," + textYOffset + ")");
+        legend.append("path")
+            .attr("d", circle)
+            .attr("class", "dendrite")
+            .attr("transform", "translate(" + (shapeSize * (0.5 + (1+legendShapeMargin))) + "," + (shapeSize / 2) + ")");
+        legend.append("text")
+            .text("glia")
+            .attr("class", "glia")
+            .attr("text-anchor", "middle")
+            .attr("transform", "translate(" + (shapeSize * (0.5 + (1+legendShapeMargin) * 2))  + "," + textYOffset + ")");
+        legend.append("path")
+            .attr("d", cross)
+            .attr("class", "glia")
+            .attr("transform", "translate(" + (shapeSize * (0.5 + (1+legendShapeMargin) * 2)) + "," + (shapeSize / 2) + ")");
+        legend.attr("transform", d => "translate(" + (width / 2 - legend.node().getBBox().width/2) + "," + (-2 * shapeSize)+ ")");
+    }
+    
+        //updateLegend();
+
+
+
+    </script>
+</body>
+</html>
