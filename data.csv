@@ -1,5 +1,5 @@
 neuron,size,height,axon,dendrite,glia,reference,link
-SNEMI3D,6.095,2,1,1,1,"I. Arganda-Carreras et al. ISBI 2013 Challenge", http://brainiac2.mit.edu/SNEMI3D/organizers 
-CREMI,5.271,1,1,1,1,"J. Funke et al. MICCAI 2016 Challenge", https://cremi.org/ 
-AxonEM,31.818,1,1,0,0,"D. Wei et al. MICCAI 2021", https://axonem.grand-challenge.org/ 
-L4Dense,81.558,1,1,0,0,"A. Motta et al. Science 2019", https://l4dense2019.brain.mpg.de/
+SNEMI3D,6.095,2,1,1,1,"I. Arganda-Carreras et al. SNEMI3D: 3D Segmentation of neurites in EM images. ISBI Challenge, 2013", http://brainiac2.mit.edu/SNEMI3D/organizers 
+CREMI,5.271,1,1,1,1,"J. Funke et al. CREMI: Circuit Reconstruction from Electron Microscopy Images. MICCAI Challenge, 2016", https://cremi.org/ 
+AxonEM,31.818,1,1,0,0,"D. Wei et al. AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions. MICCAI, 2021", https://axonem.grand-challenge.org/ 
+L4Dense,81.558,1,1,0,0,"A. Motta et al. Dense Connectomic Reconstruction in Layer 4 of the Somatosensory Cortex. Science, 2019", https://l4dense2019.brain.mpg.de/

@@ -121,8 +121,8 @@
             let margin = {top: 100, right: 80, bottom: 40, left: 90};
             width = svgWidth - margin.left - margin.right,
             height = svgHeight - margin.top - margin.bottom;
-            svg.append("svg")
-                .append("g")
+            svg.append("svg");
+            svg.append("g")
                 .attr("width", svgWidth)
                 .attr("height", svgHeight)
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
