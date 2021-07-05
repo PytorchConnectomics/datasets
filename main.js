@@ -1,34 +1,27 @@
 
-// d3.csv("data_v2_new.csv").then(chartData => {
-//
-//     console.log(chartData);
-// });
 
 
+window.onload = async function (){
 
-const chartData = await d3.csv("./data_v2_new.csv", (d) => {
-    let types = d.type.split(";");
-    types.sort((a, b) => {return a[0] - b[0]});
+    const chartData = await d3.csv("./data_v2_new.csv", (d) => {
+        let types = d.type.split(";");
+        types.sort((a, b) => {return a[0] - b[0]});
 
-    return {
-        neuron: d.neuron,
-        types: types,
-        height: parseInt(d.height),
-        graph: parseInt(d.graph),
-        size: parseFloat(d.size),
-        reference: d.reference,
-        link: d.link
-    }
-});
-chartData.sort((a, b) => {return a.size - b.size});
+        return {
+            neuron: d.neuron,
+            types: types,
+            height: parseInt(d.height),
+            graph: parseInt(d.graph),
+            size: parseFloat(d.size),
+            reference: d.reference,
+            link: d.link
+        }
+    });
+    chartData.sort((a, b) => {return a.size - b.size});
 
 
-window.onload = function (){
     let chart = new BaseChart("vis");
     chart.initVis();
-
-    let m = d3.selectAll(".bt-text");
-    console.log(m);
 
     d3.selectAll(".bt-text")
         .on("click", (e) => {
