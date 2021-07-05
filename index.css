@@ -2,6 +2,16 @@ h1 {
   text-align: center;
 }
 
+.tooltip-style{
+    opacity: 0;
+    background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+    max-width: 300px;
+}
+
 .axon{
     fill: #56B4E9;
 }
@@ -11,10 +21,55 @@ h1 {
 .glia{
     fill: #D55E00;
 }
+
+.pyramidal{
+    fill: #CC79A7;
+}
+
+.interneuron{
+    fill: #E69F00;
+}
+
 .x-axis{
     font-size: 15px;
 }
+
 .x-label {
     font-size: 15px;
+    font-family: Serif;
 }
 
+.low-res-text {
+    background-color:#FFF9B0;
+    text-align:center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.high-res-text {
+    background-color:#FFEEEE;
+    text-align:center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bt-row {
+    margin-top: 5px;
+}
+
+.bt-text {
+    font-size: 14px;
+}
+
+.vis-container {
+    margin-top: 20px;
+    height: 300px;
+}
+
+.clicked {
+    box-shadow: 0 0 0 .25rem rgba(130,138,145,.5);
+    color: #fff;
+    background-color: #565e64;
+    border-color: #51585e;
+}

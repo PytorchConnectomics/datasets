@@ -15,7 +15,7 @@
 	<table align="center">
 		<tr>
             <td style="background-color:#FFF9B0;text-align:center;"><strong style="font-size:24px;">Low-resolution</strong>&nbsp;&nbsp;</td>
-            <td style="background-color:#FFEEEE;text-align:center;" colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-size:24px;">High-resolution</strong></td>
+            <td style="background-color:#FFEEEE;text-align:center;" colspan=3><strong style="font-size:24px;">High-resolution</strong></td>
 		</tr>
 		<tr>
             <td align="center"><button class="sel" id="b0">Dense Reconstruction</button></td>
@@ -125,15 +125,17 @@
             svg.append("g")
                 .attr("width", svgWidth)
                 .attr("height", svgHeight)
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .append('defs')
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg.append('defs')
                 .append('marker')
                 .attr('id', 'arrowhead-right')
                 .attr('refX', 5)
                 .attr('refY', 5)
                 .attr('markerWidth', 16)
-                .attr('markerHeight', 13)
-                .append('path')
+                .attr('markerHeight', 13);
+
+            svg.append('path')
                 .attr('d', 'M 0 0 L 5 5 L 0 10')
                 .attr('stroke', 'black')
                 .attr('stroke-width', 1)
