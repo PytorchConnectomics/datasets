@@ -1,9 +1,6 @@
 
-
-
 window.onload = async function (){
-
-    const chartData = await d3.csv("./data_v2_new.csv", (d) => {
+    const chartData = await d3.csv("../data/benchmark.csv", (d) => {
         let types = d.type.split(";");
         types.sort((a, b) => {return a[0] - b[0]});
 

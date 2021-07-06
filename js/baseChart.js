@@ -9,11 +9,12 @@ class BaseChart {
 
         vis.width = $('#' + vis.parentElementID).width() - vis.margin.left - vis.margin.right;
         vis.height = $('#' + vis.parentElementID).height() - vis.margin.top - vis.margin.bottom;
+        vis.tickValues = [5,10,50,100,500,1000];
 
         vis.svg = d3.select("#" + vis.parentElementID).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .style("border", "black solid 1px")
+            .style("border", "black solid 0px")
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
@@ -61,20 +62,23 @@ class BaseChart {
             .range([vis.height, 0])
             .paddingInner(0.1);
 
-        vis.xScale = d3.scaleLinear()
-            .range([0, vis.width]);
+        vis.xScale = d3.scaleLog()
+            .range([0, vis.width*0.98])
+            .domain([vis.tickValues[0], vis.tickValues[vis.tickValues.length-1]]);
 
         vis.yAxis = d3.axisLeft()
             .scale(vis.yScale).tickFormat("");
-
+        
         vis.xAxis = d3.axisBottom()
-            .scale(vis.xScale);
+            .scale(vis.xScale)
+            .tickValues(vis.tickValues)
+            .tickFormat(d3.format("d"));
 
         vis.xAxisGroup = vis.svg.append("g")
             .attr("class", "x-axis axis");
 
-        vis.yAxisGroup = vis.svg.append("g")
-            .attr("class", "y-axis axis");
+        //vis.yAxisGroup = vis.svg.append("g")
+        //    .attr("class", "y-axis axis");
 
         vis.shapeSizeCof = 0.4;
         vis.shapeMarginCof = 0.2;
@@ -86,20 +90,18 @@ class BaseChart {
         vis.shapesAreaNormFunCof = [
             1, 1, 5.0 / 9.0
         ]
-
         vis.legendMaginCof = 6;
         vis.legendYOffsetCof = 1.6;
     }
 
     updateVis(chartData) {
         let vis = this;
-
         let data = chartData;
         vis.chartData = chartData;
 
         // draw x and y axis
         vis.yScale.domain(data.map( d => d.neuron));
-        vis.xScale.domain([0, d3.max(data, d => d.size)]).nice();
+        //vis.xScale.domain([0, d3.max(data, d => d.size)]).nice();
 
         vis.svg.select(".x-axis")
             .attr("transform", "translate(0," + vis.height + ")")
@@ -120,8 +122,7 @@ class BaseChart {
             .attr("text-anchor", "end")
             .attr("x", vis.width)
             .attr("y", vis.height - 6)
-            .text("Data Size (log10)");
-
+            .text("Side length (um)");
 
 
         // add text to the correct positions of the chart
@@ -214,10 +215,18 @@ class BaseChart {
                 return "translate(" + i * (shapeSize * vis.legendMaginCof) + "," + 0 + ")";
             });
 
+        // add legend underline
+        legendG.enter().append("line")
+            .style("stroke", "black")
+            .attr("x1", -shapeSize)
+            .attr("y1", shapeSize*2.1)
+            .attr("x2", shapeSize*13)
+            .attr("y2", shapeSize*2.1);
+
         // move legend to the center
         d3.select(".legend")
             .attr("transform", (d, i, n) => {
-                return "translate(" + (vis.width/2 - n[i].getBBox().width/2) + "," + (-shapeSize * vis.legendYOffsetCof * 2) + ")";
+                return "translate(" + (vis.width/2 - n[i].getBBox().width/2) + "," + (-shapeSize * vis.legendYOffsetCof * 2 - 35) + ")";
             });
     }
 }
