@@ -106,7 +106,7 @@ div.content-primary .teaser p img { display: block; float: none; border: 0; marg
     color: #444;
     padding: 10px;
     background: #eee;
-    border: 0px solid #ccc;
+    border: 1px solid #ccc;
     overflow: auto;
 }
 .acknowledgments { line-height: 130%; }
