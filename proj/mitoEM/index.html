@@ -54,7 +54,7 @@
 	  <sup>7</sup>Indian Institute of Technology Roorkee&nbsp;&nbsp;&nbsp;&nbsp;
 	  <sup>8</sup>Ikerbasque, Basque Foundation for Science
 	</div>
-	<div>* Works are done as interns at Harvard University</div>
+	<div>* Works were done as interns at Harvard University</div>
       
       </div>
       <center>
@@ -73,7 +73,7 @@
 <div class="section abstract">
 	<h2>Abstract</h2>
 	<br>
-	<p>	&nbsp;&nbsp;&nbsp;&nbsp;Electron microscopy (EM) allows the identification of intracellular organelles such as mitochondria, providing insights for clinical and scientific studies. However, public mitochondria segmentation datasets only contain hundreds of instances with simple shapes. It is unclear if existing methods achieving human-level accuracy on these small datasets are robust in practice. To this end, we introduce the <b> MitoEM</b> dataset, a 3D mitochondria instance segmentation dataset with two 30um cubic volumes from human and rat cortices respectively, <b>3,600x</b> larger than previous benchmarks. With around 40K instances, we find a great diversity of mitochondria in terms of shape and density. For evaluation, we tailor the implementation of the average precision (AP) metric for 3D data with a <b>45x</b> speedup. On MitoEM, we find existing instance segmentation methods often fail to correctly segment mitochondria with complex shapes or close contacts with other instances. Thus, our MitoEM dataset poses new challenges to the field. 
+    <p>	&nbsp;&nbsp;&nbsp;&nbsp;Electron microscopy (EM) allows the identification of intracellular organelles such as mitochondria, providing insights for clinical and scientific studies. However, public mitochondria segmentation datasets only contain hundreds of instances with simple shapes. It is unclear if existing methods achieving human-level accuracy on these small datasets are robust in practice. To this end, we introduce the <b> MitoEM</b> dataset, a 3D mitochondria instance segmentation dataset with two 30x30x30 &mu;m<sup style="font-size:10px">3</sup> volumes from human and rat cortices respectively, <b>3,600x</b> larger than previous benchmarks. With around 40K instances, we find a great diversity of mitochondria in terms of shape and density. For evaluation, we tailor the implementation of the average precision (AP) metric for 3D data with a <b>45x</b> speedup. On MitoEM, we find existing instance segmentation methods often fail to correctly segment mitochondria with complex shapes or close contacts with other instances. Thus, our MitoEM dataset poses new challenges to the field. 
     </p>
   </div>
 
@@ -81,9 +81,9 @@
 <div class="section materials">
 <h2>Dataset</h2>
 	<center><img src="./src/mitoEM_dataset.png" border="0" width="80%"></center>
-    <p>We plot the length versus volume of mitochondria instances for both volumes, where the length of the mitochondria is approximated by the number of voxels in its 3D skeleton (Left).
-    There is a strong linear correlation between the volume and length mitochondria in both volumes, which is the average thickness of the instance. While the MitoEM-H has more small instances, the MitoEM-R has more large instances with complex morphologies.
-    We sample mitochondria of different length along the regression line and find instances share similar shapes to MOAS in both volumes (Right).
+    <p>(Left) We plot the length versus volume of mitochondria instances for both volumes, where the length of the mitochondria is approximated by the number of voxels in its 3D skeleton.
+  (Right) There is a strong linear correlation between the volume and length mitochondria in both volumes, which is the average thickness of the instance. While the MitoEM-H has more small instances, the MitoEM-R has more large instances with complex morphologies.
+    We sample mitochondria of different length along the regression line and find instances share similar shapes to MOAS in both volumes.
     </p>
   </div>
 <br>
