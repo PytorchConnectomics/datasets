@@ -91,7 +91,7 @@ class BaseChart {
             1, 1, 5.0 / 9.0
         ]
         vis.legendMaginCof = 8;
-        vis.legendYOffsetCof = 1.6;
+        vis.legendYOffsetCof = 1.5;
     }
 
     updateVis(chartData) {
@@ -219,17 +219,14 @@ class BaseChart {
         legendG.enter().append("line")
             .style("stroke", "black")
             .attr("x1", -shapeSize*5)
-            .attr("y1", shapeSize*2.1)
+            .attr("y1", shapeSize*2)
             .attr("x2", (allTypes.length-1) * (shapeSize * vis.legendMaginCof)+shapeSize*5)
-            .attr("y2", shapeSize*2.1);
+            .attr("y2", shapeSize*2);
 
         // move legend to the center
         d3.select(".legend")
             .attr("transform", (d, i, n) => {
-                console.log((vis.width + vis.margin.left + vis.margin.right + 40)/2);
-                console.log(n[i].getBBox().width);
-                console.log((vis.width + vis.margin.left + vis.margin.right + 40)/2 - n[i].getBBox().width/2);
-                return "translate(" + ((vis.width + vis.margin.left + vis.margin.right + 40)/2 - n[i].getBBox().width/2) + "," + (-shapeSize * vis.legendYOffsetCof * 2 - 15) + ")";
+                return "translate(" + ((vis.width + vis.margin.left + vis.margin.right + 40)/2 - n[i].getBBox().width/2) + "," + (-n[i].getBBox().height - 10) + ")";
             });
     }
 }
