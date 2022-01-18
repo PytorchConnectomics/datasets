@@ -1,6 +1,6 @@
 
 window.onload = async function (){
-    const chartData = await d3.csv("../data/benchmark.csv", (d) => {
+    const chartData = await d3.csv("./data/benchmark.csv", (d) => {
         let types = d.type.split(";");
         types.sort((a, b) => {return a[0] - b[0]});
 
@@ -23,9 +23,9 @@ window.onload = async function (){
     d3.selectAll(".bt-text")
         .on("click", (e) => {
             d3.selectAll(".bt-text")
-                .classed('clicked', false);
+                .classed('active', false);
             let thisBt = d3.select("#" + e.currentTarget.id);
-            thisBt.classed('clicked', true);
+            thisBt.classed('active', true);
 
             let graphID = parseInt(e.currentTarget.id.slice(1, e.currentTarget.id.length));
 

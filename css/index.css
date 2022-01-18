@@ -26,6 +26,14 @@
     fill: #E69F00;
 }
 
+.mito{
+    fill: #0072B2;
+}
+
+.nucleus{
+    fill: #009E73;
+}
+
 .x-axis{
     font-size: 15px;
 }

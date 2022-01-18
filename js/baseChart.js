@@ -12,7 +12,7 @@ class BaseChart {
         vis.tickValues = [5,10,50,100,500,1000];
 
         vis.svg = d3.select("#" + vis.parentElementID).append("svg")
-            .attr("width", vis.width + vis.margin.left + vis.margin.right)
+            .attr("width", vis.width + vis.margin.left + vis.margin.right + 40)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .style("border", "black solid 0px")
             .append("g")
@@ -90,7 +90,7 @@ class BaseChart {
         vis.shapesAreaNormFunCof = [
             1, 1, 5.0 / 9.0
         ]
-        vis.legendMaginCof = 6;
+        vis.legendMaginCof = 8;
         vis.legendYOffsetCof = 1.6;
     }
 
@@ -160,7 +160,7 @@ class BaseChart {
         neuronGroups.selectAll(".neuron-types").remove();
         neuronGroups.append("g")
             .attr("class", "neuron-types")
-        .selectAll(".neuron-shapes")
+            .selectAll(".neuron-shapes")
             .append("g")
             .data(d => d.types)
             .enter().append("path")
@@ -218,15 +218,18 @@ class BaseChart {
         // add legend underline
         legendG.enter().append("line")
             .style("stroke", "black")
-            .attr("x1", -shapeSize)
+            .attr("x1", -shapeSize*5)
             .attr("y1", shapeSize*2.1)
-            .attr("x2", shapeSize*13)
+            .attr("x2", (allTypes.length-1) * (shapeSize * vis.legendMaginCof)+shapeSize*5)
             .attr("y2", shapeSize*2.1);
 
         // move legend to the center
         d3.select(".legend")
             .attr("transform", (d, i, n) => {
-                return "translate(" + (vis.width/2 - n[i].getBBox().width/2) + "," + (-shapeSize * vis.legendYOffsetCof * 2 - 35) + ")";
+                console.log((vis.width + vis.margin.left + vis.margin.right + 40)/2);
+                console.log(n[i].getBBox().width);
+                console.log((vis.width + vis.margin.left + vis.margin.right + 40)/2 - n[i].getBBox().width/2);
+                return "translate(" + ((vis.width + vis.margin.left + vis.margin.right + 40)/2 - n[i].getBBox().width/2) + "," + (-shapeSize * vis.legendYOffsetCof * 2 - 15) + ")";
             });
     }
 }
