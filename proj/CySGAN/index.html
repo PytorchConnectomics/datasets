@@ -52,7 +52,7 @@
           <sup>5</sup> Donostia International Physics Center&nbsp;&nbsp;&nbsp;
           <sup>6</sup> University of the Basque Country&nbsp;&nbsp;&nbsp;
           <sup>7</sup> Ikerbasque, Basque Foundation for Science<br />
-          <sup>8</sup> HHMI
+          <sup>8</sup> HHMI&nbsp;&nbsp;&nbsp;
           <sup>9</sup> Boston College
         </div>
         <div>* These authors contributed equally to this work.</div>
@@ -61,7 +61,7 @@
       </div>
       <center>
         <font size=4>
-          [<a href="https://arxiv.org/abs/2107.05840">arXiv</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          [<a href="https://arxiv.org/abs/2204.03082">arXiv</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           [<a
             href="https://github.com/zudi-lin/pytorch_connectomics/tree/master/projects/CySGAN">Code</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           [<a href="https://connectomics-bazaar.github.io/proj/CySGAN/index.html">Dataset (coming soon)</a>]
@@ -69,13 +69,6 @@
       </center>
       <br />
       <br />
-      <br />
-      <center><img src="./src/overview.png" border="0" width="90%"></center>
-      <p>
-        <b>Overview of task and methods.</b> (a) We aim to segment an unlabeled target domain by leveraging the images and masks in the source domain. Instead of (b) conducting image 
-        translation (e.g., via CycleGAN) and instance segmentation as two separate steps, we propose (c) the CySGAN framework to unify the two functionalities, optimized with both 
-        image translation as well as supervised and semi-supervised segmentation losses.
-      </p>
 
       <div class="section abstract">
         <h2>Abstract</h2>
@@ -94,11 +87,25 @@
           generalist models and the baselines that sequentially conduct image translation and segmentation. Our implementation and the newly 
           collected, densely annotated ExM nuclei dataset, named <i>NucExM</i>, are publicly available.
         </p>
+
+        <br />
+        <center><img src="./src/overview.png" border="0" width="90%"></center>
+        <p>
+          <b>Overview of task and methods.</b> (a) We aim to segment an unlabeled target domain by leveraging the images and masks in the source domain. Instead of (b) conducting image 
+          translation (e.g., via CycleGAN) and instance segmentation as two separate steps, we propose (c) the CySGAN framework to unify the two functionalities, optimized with both 
+          image translation as well as supervised and semi-supervised segmentation losses.
+        </p>
       </div>
 
       <br>
       <div class="section materials">
         <h2>Method</h2>
+        <br>
+        <p>
+          We show the training objectives (image-translation losses are omitted for simplicity) as well as the learn-to-restore task.
+        </p>
+
+        <br>
         <center><img src="./src/losses.png" border="0" width="90%"></center>
         <p>
           <b>Segmentation losses.</b> (a) For an annotated image in X, we compute the supervised losses of predicted representations against the 
