@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Instance Segmentation of Unlabeled Modalities via Cyclic Segmentation GAN</title>
+
+  <!-- Meta tags for search engines to crawl -->
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="">
+  <meta name="keywords" content="mitochondira; instance segmentation;">
+
+  <!-- Fonts and stuff -->
+  <link href="./src/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./src/project.css" media="screen">
+  <link rel="stylesheet" type="text/css" media="screen" href="./src/iconize.css">
+  <script async="" src="./src/prettify.js"></script>
+  <style>
+    .highlight {
+      padding: 1.5rem;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>Instance Segmentation of Unlabeled Modalities<br> via Cyclic Segmentation GAN</h1>
+        <br />
+        <div class="authors">
+          Leander Lauenburg<sup>1,2*</sup>&nbsp;&nbsp;&nbsp;
+          <a href="https://zudi-lin.github.io/">Zudi Lin</a><sup>1*†</sup>&nbsp;&nbsp;&nbsp;
+          Ruihan Zhang<sup>3</sup>&nbsp;&nbsp;&nbsp;
+          Márcia dos Santos<sup>4</sup>&nbsp;&nbsp;&nbsp;
+          Siyu Huang<sup>1</sup><br />
+          <a href="https://sites.google.com/site/iargandacarreras/"> Ignacio
+            Arganda-Carreras</a><sup>5,6,7</sup>&nbsp;&nbsp;&nbsp;
+          <a href="https://syntheticneurobiology.org/people/display/71/11">Edward
+            S. Boyden</a><sup>3,8</sup>&nbsp;&nbsp;&nbsp;
+          <a href="https://vcg.seas.harvard.edu/people/hanspeter-pfister">Hanspeter
+            Pfister</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+          <a href="https://people.csail.mit.edu/donglai/">Donglai Wei</a><sup>9</sup>
+        </div>
+        <div class="affiliations">
+          <sup>1</sup> Harvard University&nbsp;&nbsp;&nbsp;
+          <sup>2</sup> Technical University of Munich&nbsp;&nbsp;&nbsp;
+          <sup>3</sup> MIT&nbsp;&nbsp;&nbsp;
+          <sup>4</sup> University of Cambridge<br />
+          <sup>5</sup> Donostia International Physics Center&nbsp;&nbsp;&nbsp;
+          <sup>6</sup> University of the Basque Country&nbsp;&nbsp;&nbsp;
+          <sup>7</sup> Ikerbasque, Basque Foundation for Science<br />
+          <sup>8</sup> HHMI
+          <sup>9</sup> Boston College
+        </div>
+        <div>* These authors contributed equally to this work.</div>
+        <div>† Corresponding author. Email: linzudi at g.harvard.edu</div>
+
+      </div>
+      <center>
+        <font size=4>
+          [<a href="https://arxiv.org/abs/2107.05840">arXiv</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          [<a
+            href="https://github.com/zudi-lin/pytorch_connectomics/tree/master/projects/CySGAN">Code</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          [<a href="https://connectomics-bazaar.github.io/proj/CySGAN/index.html">Dataset (coming soon)</a>]
+        </font>
+      </center>
+      <br />
+      <br />
+      <br />
+      <center><img src="./src/overview.png" border="0" width="90%"></center>
+      <p>
+        <b>Overview of task and methods.</b> (a) We aim to segment an unlabeled target domain by leveraging the images and masks in the source domain. Instead of (b) conducting image 
+        translation (e.g., via CycleGAN) and instance segmentation as two separate steps, we propose (c) the CySGAN framework to unify the two functionalities, optimized with both 
+        image translation as well as supervised and semi-supervised segmentation losses.
+      </p>
+
+      <div class="section abstract">
+        <h2>Abstract</h2>
+        <br>
+        <p>
+          Instance segmentation for unlabeled imaging modalities is a challenging but essential task as collecting expert annotation 
+          can be expensive and time-consuming. Existing works segment a new modality by either deploying a pre-trained model optimized 
+          on diverse training data or conducting domain translation and image segmentation as two independent steps. In this work, 
+          we propose a novel 
+          <i>Cyclic Segmentation</i> 
+          Generative Adversarial Network (<b>CySGAN</b>) that conducts image translation and instance 
+          segmentation jointly using a unified framework. Besides the CycleGAN losses for image translation and supervised losses for the 
+          annotated source domain, we introduce additional self-supervised and segmentation-based adversarial objectives to improve the model 
+          performance by leveraging unlabeled target domain images. We benchmark our approach on the task of 3D neuronal nuclei segmentation 
+          with annotated electron microscopy (EM) images and unlabeled expansion microscopy (ExM) data. Our CySGAN outperforms both pre-trained 
+          generalist models and the baselines that sequentially conduct image translation and segmentation. Our implementation and the newly 
+          collected, densely annotated ExM nuclei dataset, named <i>NucExM</i>, are publicly available.
+        </p>
+      </div>
+
+      <br>
+      <div class="section materials">
+        <h2>Method</h2>
+        <center><img src="./src/losses.png" border="0" width="90%"></center>
+        <p>
+          <b>Segmentation losses.</b> (a) For an annotated image in X, we compute the supervised losses of predicted representations against the 
+          label. (b) For an unlabeled image in Y, we enforce structural consistency between predicted representations (as the underlying structures 
+          should be shared) and also adversarial losses to improve the quality of predictions in the absence of paired labels.
+        </p>
+
+        <br>
+        <center><img src="./src/restore.png" border="0" width="90%"></center>
+        <p>
+          <b>Training augmentations.</b> We show four consecutive slices of (a) augmented real Y input, (b) synthesized X volume, (c) reconstructed Y volume 
+          and (d) real Y volume w/o augmentations. By forcing the cycle consistency of (c) to (d), the model learns to restore corrupted regions with 3D context.
+        </p>
+      </div>
+      <br>
+
+      <br>
+      <div class="section materials">
+        <h2>Citation</h2>
+        <pre class="highlight">
+@misc{lauenburg2022instance,
+      title={Instance Segmentation of Unlabeled Modalities via Cyclic Segmentation GAN}, 
+      author={Leander Lauenburg and Zudi Lin and Ruihan Zhang and Márcia dos Santos and Siyu Huang and 
+        Ignacio Arganda-Carreras and Edward S. Boyden and Hanspeter Pfister and Donglai Wei},
+      year={2022},
+      eprint={2204.03082},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+        </pre>
+        <h2>Acknowledgement</h2>
+        <p>
+          This work has been partially supported by NSF awards IIS-1835231 and IIS- 2124179 and NIH grant 5U54CA225088-03. 
+          Leander Lauenburg acknowledges the support from a fellowship within the IFI program of the German Academic Exchange 
+          Service (DAAD). Ignacio Arganda-Carreras acknowledges the support of the Beca Leonardo a Investigadores y Creadores 
+          Culturales 2020 de la Fundaci&oacute;n BBVA. Edward S. Boyden acknowledges NIH 1R01EB024261, Lisa Yang, John Doerr, 
+          NIH 1R01MH123403, NIH 1R01MH123977, Schmidt Futures.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
