@@ -35,7 +35,8 @@
           <a href="https://zudi-lin.github.io/">Zudi Lin</a><sup>1*†</sup>&nbsp;&nbsp;&nbsp;
           Ruihan Zhang<sup>3</sup>&nbsp;&nbsp;&nbsp;
           Márcia dos Santos<sup>4</sup>&nbsp;&nbsp;&nbsp;
-          Siyu Huang<sup>1</sup><br />
+          <a href="https://siyuhuang.github.io/">Siyu
+            Huang</a><sup>1</sup><br />
           <a href="https://sites.google.com/site/iargandacarreras/"> Ignacio
             Arganda-Carreras</a><sup>5,6,7</sup>&nbsp;&nbsp;&nbsp;
           <a href="https://syntheticneurobiology.org/people/display/71/11">Edward
@@ -56,7 +57,7 @@
           <sup>9</sup> Boston College
         </div>
         <div>* These authors contributed equally to this work.</div>
-        <div>† Corresponding author. Email: linzudi at g.harvard.edu</div>
+        <div>† Corresponding author. Email: linzudi [at] g.harvard.edu</div>
 
       </div>
       <center>
@@ -67,7 +68,6 @@
           [<a href="https://connectomics-bazaar.github.io/proj/CySGAN/index.html">Dataset (coming soon)</a>]
         </font>
       </center>
-      <br />
       <br />
 
       <div class="section abstract">
@@ -91,6 +91,7 @@
         <br />
         <center><img src="./src/overview.png" border="0" width="90%"></center>
         <p>
+          <br>
           <b>Overview of task and methods.</b> (a) We aim to segment an unlabeled target domain by leveraging the images and masks in the source domain. Instead of (b) conducting image 
           translation (e.g., via CycleGAN) and instance segmentation as two separate steps, we propose (c) the CySGAN framework to unify the two functionalities, optimized with both 
           image translation as well as supervised and semi-supervised segmentation losses.
@@ -106,7 +107,7 @@
         </p>
 
         <br>
-        <center><img src="./src/losses.png" border="0" width="90%"></center>
+        <center><img src="./src/losses.png" border="0" width="85%"></center>
         <p>
           <b>Segmentation losses.</b> (a) For an annotated image in X, we compute the supervised losses of predicted representations against the 
           label. (b) For an unlabeled image in Y, we enforce structural consistency between predicted representations (as the underlying structures 
@@ -117,23 +118,31 @@
         <center><img src="./src/restore.png" border="0" width="90%"></center>
         <p>
           <b>Training augmentations.</b> We show four consecutive slices of (a) augmented real Y input, (b) synthesized X volume, (c) reconstructed Y volume 
-          and (d) real Y volume w/o augmentations. By forcing the cycle consistency of (c) to (d), the model learns to restore corrupted regions with 3D context.
+          and (d) real Y volume w/o augmentations. By forcing the cycle consistency of (c) to (d) instead of the augmented input (a), the model learns to 
+          restore corrupted regions with 3D context.
         </p>
       </div>
-      <br>
 
-      <br>
+      <div class="section materials">
+        <h2>Results</h2>
+        <br>
+        <center><img src="./src/seg.png" border="0" width="80%"></center>
+        <p>
+          <b>Multi-view visualization and 3D meshes of NucExM.</b> We show the
+          composite views of microscopy images and instance masks. We generated the visualizations using
+          the Neuroglancer (<a href="https://github.com/google/neuroglancer">https://github.com/google/neuroglancer</a>).
+        </p>
+      </div>
+
       <div class="section materials">
         <h2>Citation</h2>
         <pre class="highlight">
-@misc{lauenburg2022instance,
-      title={Instance Segmentation of Unlabeled Modalities via Cyclic Segmentation GAN}, 
-      author={Leander Lauenburg and Zudi Lin and Ruihan Zhang and Márcia dos Santos and Siyu Huang and 
-        Ignacio Arganda-Carreras and Edward S. Boyden and Hanspeter Pfister and Donglai Wei},
-      year={2022},
-      eprint={2204.03082},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{lauenburg2022instance,
+  title={Instance Segmentation of Unlabeled Modalities via Cyclic Segmentation GAN},
+  author={Lauenburg, Leander and Lin, Zudi and Zhang, Ruihan and Santos, M{\'a}rcia dos and Huang, Siyu 
+          and Arganda-Carreras, Ignacio and Boyden, Edward S and Pfister, Hanspeter and Wei, Donglai},
+  journal={arXiv preprint arXiv:2204.03082},
+  year={2022}
 }
         </pre>
         <h2>Acknowledgement</h2>
