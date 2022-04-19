@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions</title>
+
+<!-- Meta tags for search engines to crawl -->
+<meta name="robots" content="index,follow">
+<meta name="description" content="">
+<meta name="keywords" content="mitochondira; instance segmentation;">
+
+<!-- Fonts and stuff -->
+<link href="./src/css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./src/project.css" media="screen">
+<link rel="stylesheet" type="text/css" media="screen" href="./src/iconize.css">
+<script async="" src="./src/prettify.js"></script>
+<style>
+.highlight {
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-left: 0;  
+}
+
+</style>
+
+</head>
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+	<h1>AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions</h1>
+    <br/>
+	<div class="authors">
+	  <a href="https://people.csail.mit.edu/donglai/">Donglai Wei</a><sup>1,&dagger;</sup>&nbsp;
+      <a href="http://kisuklee.wikidot.com/">Kisuk Lee</a><sup>2,&dagger;</sup>&nbsp;	  
+	  Hanyu Li<sup>3</sup>&nbsp;
+	  Ran Lu<sup>2</sup>&nbsp;
+	  J. Alexander Bae<sup>2</sup>&nbsp;
+	  Zequan Liu<sup>4,*</sup>&nbsp;
+	  Lifu Zhang<sup>5,*</sup>&nbsp;
+	  Márcia dos Santos<sup>6,*</sup>&nbsp;
+      <a href="https://zudi-lin.github.io/projects/">Zudi Lin</a><sup>1</sup>&nbsp;	  
+	  Thomas Uram<sup>7</sup>&nbsp;
+	  Xueying Wang<sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://sites.google.com/site/iargandacarreras/"> Ignacio Arganda-Carreras</a><sup>8,9,10</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://www.brianmatejek.com/">Brian Matejek</a><sup>1</sup>&nbsp;
+      <a href="https://neurograd.uchicago.edu/program/faculty/narayanan-kasthuri">Narayanan Kasthuri</a><sup>3,7</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://lichtmanlab.fas.harvard.edu/people/jeff-lichtman">Jeff W. Lichtman</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a href="https://vcg.seas.harvard.edu/people/hanspeter-pfister">Hanspeter Pfister</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	<div class="affiliations">
+	  <sup>1</sup>Harvard University&nbsp;&nbsp;&nbsp;&nbsp;  
+	  <sup>2</sup>Princeton University&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>3</sup>University of Chicago&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>4</sup>RWTH Aachen University&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>5</sup>Boston University<br/>
+	  <sup>6</sup>Universidade do Vale do Rio dos Sinos&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>7</sup>Argonne National Laboratory&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>8</sup>Donostia International Physics Center (DPIC)<br/>
+      <sup>9</sup>University of the Basque Country (UPV/EHU)&nbsp;&nbsp;&nbsp;&nbsp;
+	  <sup>10</sup>Ikerbasque, Basque Foundation for Science
+	</div>
+	<div>&dagger; Equal contribution.</div>
+	<div>* Works were done as interns at Harvard University.</div>
+      
+      </div>
+      <center>
+      <font size=4>
+          <a href="https://www.miccai2021.org/">MICCAI 2021</a> / <a href="https://axonem.grand-challenge.org/">Grand Challenge</a><br/><br/>
+          [<a href="https://arxiv.org/abs/2107.05451">Paper</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        [<a href="https://github.com/donglaiw/AxonEM-challenge">Code</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        [<a href="">Dataset</a>]
+      </font>
+      </center>
+<br/>    
+<br/>    
+<br/>    
+      <center><img src="./src/axonEM_teaser.png" border="0" width="80%"></center>
+
+<div class="section abstract">
+	<h2>Abstract</h2>
+	<br>
+    <p>	&nbsp;&nbsp;&nbsp;&nbsp; Electron microscopy (EM) enables the reconstruction of neural circuits at the level of individual synapses, which has been transformative for scientific discoveries. However, due to the complex morphology, an accurate reconstruction of cortical axons has become a major challenge. Worse still, there is no publicly available large-scale EM dataset from the cortex that provides dense ground truth segmentation for axons, making it difficult to develop and evaluate large-scale axon reconstruction methods. To address this, we introduce the AxonEM dataset, which consists of two 30x30x30 &mu;m<sup style="font-size:10px">3</sup> EM image volumes from the human and mouse cortex, respectively. We thoroughly proofread over <b>18,000</b> axon instances to provide dense 3D axon instance segmentation, enabling large-scale evaluation of axon reconstruction methods. In addition, we densely annotate nine ground truth subvolumes for training, per each data volume. With this, we reproduce two published state-of-the-art methods and provide their evaluation results as a baseline. We publicly release our code and data here to foster the development of advanced methods.  
+    </p>
+  </div>
+
+<br>
+<div class="section materials">
+<h2>Dataset</h2>
+	<center><img src="./src/axonEM_dataset.png" border="0" width="80%"></center>
+    <p>(Left) We plot the distribution of the axon instance length for AxonEM and SNEMI3D datasets.
+    (Right) We show the 3D rendering of neurons with somas in AxonEM dataset. Two large glial cells (not rendered) in AxonEM-H occupy the space between the blue and pink neurons, leading to much fewer long axons compared to AxonEM-M.
+    </p>
+  </div>
+<br>
+
+
+<br>
+<div class="section materials">
+<h2>Citation</h2>
+<pre class="highlight">
+@misc{wei2021axonem,
+      title={AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions}, 
+      author={Donglai Wei and Kisuk Lee and Hanyu Li and Ran Lu and J. Alexander Bae and Zequan Liu and 
+      Lifu Zhang and Márcia dos Santos and Zudi Lin and Thomas Uram and Xueying Wang and Ignacio 
+      Arganda-Carreras and Brian Matejek and Narayanan Kasthuri and Jeff Lichtman and Hanspeter Pfister},
+      year={2021},
+      eprint={2107.05451},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+</pre>
+<h2>Acknowledgement</h2>
+<p>
+KL, RL, and JAB were supported by the Intelligence Advanced Research Projects Activity (IARPA) via Department of Interior/ Interior Business Center (DoI/IBC) contract number D16PC0005, NIH/NIMH (U01MH114824, U01MH117072, RF1 MH117815), NIH/NINDS (U19NS104648, R01NS104926), NIH/NEI (R01EY027 036), and ARO (W911NF-12-1-0594), and are also grateful for assistance from Google, Amazon, and Intel. DW, ZL, JL, and HP were partially supported by NSF award IIS-1835231. I. A-C would like to acknowledge the support of the Beca Leonardo a Investigadores y Creadores Culturales 2020 de la Fundación BBVA. We thank Viren Jain, Michał Januszewski and their team for generating the initial segmentation for AxonEM-H, and Daniel Franco-Barranco for setting up the challenge using AxonEM.
+</p>
+<h2>Declaration of Interests</h2>
+<p>KL, RL, and JAB disclose financial interests in Zetta AI LLC.</p>
+</div>
+
+</div></div></body></html>
