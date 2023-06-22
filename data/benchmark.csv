@@ -1,15 +1,15 @@
 neuron,type,graph,size,height,reference,link
-SNEMI3D,axon;dendrite;glia,0,6.095,2,"I. Arganda-Carreras et al. SNEMI3D: 3D Segmentation of neurites in EM images. ISBI Challenge, 2013",http://brainiac2.mit.edu/SNEMI3D/organizers
-CREMI,axon;dendrite;glia,0,5.271,1,"J. Funke et al. CREMI: Circuit Reconstruction from Electron Microscopy Images. MICCAI Challenge, 2016",https://cremi.org/
-AxonEM,axon,0,31.818,1,"D. Wei et al. AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions. MICCAI, 2021",https://axonem.grand-challenge.org/
-L4Dense,axon,0,81.558,1,"A. Motta et al. Dense Connectomic Reconstruction in Layer 4 of the Somatosensory Cortex. Science, 2019",https://l4dense2019.brain.mpg.de/
-PetaHuman,pyramidal;interneuron,1,1006,1,"A. Shapson-Coe et al. A connectomic study of a petascale fragment of human cerebral cortex. bioRxiv, 2021",https://h01-release.storage.googleapis.com/landing.html
-L4Dense,pyramidal;interneuron,1,81.558,0,"A. Motta et al. Dense Connectomic Reconstruction in Layer 4 of the Somatosensory Cortex. Science, 2019",https://l4dense2019.brain.mpg.de/
-Zebrafinch,pyramidal,1,102.4,1,"M. Januszewski et al. High-precision automated reconstruction of neurons with flood-filling networks. Nature Method, 2018",https://storage.googleapis.com/j0126-nature-methods-data/GgwKmcKgrcoNxJccKuGIzRnQqfit9hnfK1ctZzNbnuU/README.txt
-MICrONS-Phase 1,pyramidal,1,146.59,2,"N. Turner*, T. Macrina*, J. Bae*, R. Yang*, A. Wilson*, C. Schneider-Mizell*, K. Lee*, R. Lu*, J. Wu*, A. Bodor*,A. Bleckert*, D. Brittain*, E. Froudarakis*, S. Dorkenwald*, F. Collman*, et al. Multiscale and multimodal reconstruction of cortical structure and function. bioRxiv, 2020",https://www.microns-explorer.org/phase1
-MICrONS-Phase 2,pyramidal;interneuron,1,1007.6,3,"Bae, J. A., Baptiste, M., Bodor, A. L., Brittain, D., Buchanan, J., Bumbarger, D. J., ... & MICrONS Consortium. Functional connectomics spanning multiple areas of mouse visual cortex. bioRxiv, 2021",https://www.microns-explorer.org/cortical-mm3
-NucMM-Z,soma,2,519.25,0,"D. Wei et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
-NucMM-M,soma,2,629.96,1,"Z. Lin et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
+SNEMI3D,axon;dendrite;glia,0,6.095,2,"Arganda-Carreras et al. SNEMI3D: 3D Segmentation of neurites in EM images. ISBI Challenge, 2013",http://brainiac2.mit.edu/SNEMI3D/organizers
+CREMI,axon;dendrite;glia,0,5.271,1,"Funke et al. CREMI: Circuit Reconstruction from Electron Microscopy Images. MICCAI Challenge, 2016",https://cremi.org/
+AxonEM,axon,0,31.818,1,"Wei et al. AxonEM Dataset: 3D Axon Instance Segmentation of Brain Cortical Regions. MICCAI, 2021",https://axonem.grand-challenge.org/
+L4Dense,axon,0,81.558,1,"Motta et al. Dense Connectomic Reconstruction in Layer 4 of the Somatosensory Cortex. Science, 2019",https://l4dense2019.brain.mpg.de/
+PetaHuman,pyramidal;interneuron,1,1006,1,"Shapson-Coe et al. A connectomic study of a petascale fragment of human cerebral cortex. bioRxiv, 2021",https://h01-release.storage.googleapis.com/landing.html
+L4Dense,pyramidal;interneuron,1,81.558,0,"Motta et al. Dense Connectomic Reconstruction in Layer 4 of the Somatosensory Cortex. Science, 2019",https://l4dense2019.brain.mpg.de/
+Zebrafinch,pyramidal,1,102.4,1,"Januszewski et al. High-precision automated reconstruction of neurons with flood-filling networks. Nature Method, 2018",https://storage.googleapis.com/j0126-nature-methods-data/GgwKmcKgrcoNxJccKuGIzRnQqfit9hnfK1ctZzNbnuU/README.txt
+MICrONS-Phase 1,pyramidal,1,146.59,2,"Turner et al. Multiscale and multimodal reconstruction of cortical structure and function. bioRxiv, 2020",https://www.microns-explorer.org/phase1
+MICrONS-Phase 2,pyramidal;interneuron,1,1007.6,3,"Bae et al. Functional connectomics spanning multiple areas of mouse visual cortex. bioRxiv, 2021",https://www.microns-explorer.org/cortical-mm3
+NucMM-Z,soma,2,519.25,0,"Wei et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
+NucMM-M,soma,2,629.96,1,"Lin et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
 FAFB,soma,2,1000,1,"X. Liu et al. A Soma Segmentation Benchmark in Full Adult Fly Brain",https://github.com/liuxy1103/EMADS
-MitoEM-R,mito,4,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
-MitoEM-H,mito,4,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
+MitoEM-R,mito,4,31.818,1,"Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
+MitoEM-H,mito,4,31.818,1,"Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
