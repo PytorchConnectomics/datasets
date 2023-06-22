@@ -8,7 +8,8 @@ L4Dense,pyramidal;interneuron,1,81.558,0,"A. Motta et al. Dense Connectomic Reco
 Zebrafinch,pyramidal,1,102.4,1,"M. Januszewski et al. High-precision automated reconstruction of neurons with flood-filling networks. Nature Method, 2018",https://storage.googleapis.com/j0126-nature-methods-data/GgwKmcKgrcoNxJccKuGIzRnQqfit9hnfK1ctZzNbnuU/README.txt
 MICrONS-Phase 1,pyramidal,1,146.59,2,"N. Turner*, T. Macrina*, J. Bae*, R. Yang*, A. Wilson*, C. Schneider-Mizell*, K. Lee*, R. Lu*, J. Wu*, A. Bodor*,A. Bleckert*, D. Brittain*, E. Froudarakis*, S. Dorkenwald*, F. Collman*, et al. Multiscale and multimodal reconstruction of cortical structure and function. bioRxiv, 2020",https://www.microns-explorer.org/phase1
 MICrONS-Phase 2,pyramidal;interneuron,1,1007.6,3,"Bae, J. A., Baptiste, M., Bodor, A. L., Brittain, D., Buchanan, J., Bumbarger, D. J., ... & MICrONS Consortium. Functional connectomics spanning multiple areas of mouse visual cortex. bioRxiv, 2021",https://www.microns-explorer.org/cortical-mm3
-MitoEM-R,mito,2,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
-MitoEM-H,mito,2,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
-NucMM-Z,nucleus,3,519.25,0,"D. Wei et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
-NucMM-M,nucleus,3,629.96,1,"Z. Lin et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
+NucMM-Z,soma,2,519.25,0,"D. Wei et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
+NucMM-M,soma,2,629.96,1,"Z. Lin et al. NucMM Dataset: 3D Neuronal Nuclei Instance Segmentation at Sub-Cubic Millimeter Scale", https://nucmm.grand-challenge.org/ 
+FAFB,soma,2,1000,1,"X. Liu et al. A Soma Segmentation Benchmark in Full Adult Fly Brain",https://github.com/liuxy1103/EMADS
+MitoEM-R,mito,4,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/
+MitoEM-H,mito,4,31.818,1,"D. Wei et al. MitoEM Dataset: Large-scale 3D Mitochondria Instance Segmentation from EM Images", https://mitoem.grand-challenge.org/

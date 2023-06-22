@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="css/index.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>-->
-<!--        <script src="assets/demo/chart-area-demo.js"></script>-->
-<!--        <script src="assets/demo/chart-bar-demo.js"></script>-->
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="js/baseChart.js"></script>
-        <script src="js/main.js" type="module"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>-->
+    <!--        <script src="assets/demo/chart-area-demo.js"></script>-->
+    <!--        <script src="assets/demo/chart-bar-demo.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/baseChart.js"></script>
+    <script src="js/main.js" type="module"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Connectomics Bazaar</a>
+            <a class="navbar-brand ps-3" href="index.html">Electron Microscopy Benchmark Datasets</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -42,32 +49,48 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                Overview
                             </a>
                             <div class="sb-sidenav-menu-heading">Dataset</div>
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Segmentation (High-Res)
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="nav">
-                                    <button type="button" class="btn btn-secondary bt-text" id="b0">Dense Cell</button>
-                                    <button type="button" class="btn btn-secondary bt-text" id="b1">Sparse Neuron</button>
-                                    <button type="button" class="btn btn-secondary bt-text" id="b2">Dense Organelle</button>
-                                </nav>
+
+                            <div class="sb-nav-link-icon">
+                                &nbsp;&nbsp;&nbsp;
+                                <i class="fas fa-book-open"></i>
+                                &nbsp;Segmentation
                             </div>
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Segmentation (Low-Res)
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="nav accordion" id="sidenavAccordionPages">
-                                    <button type="button" class="btn btn-secondary bt-text" id="b3">Nucleus</button>
-                                    <button type="button" class="btn btn-secondary bt-text" id="b4">Blood Vessel</button>
-                                </nav>
-                            </div>
+                            <ul>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b0">Dense Cell</button>
+                                </li>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b1">Sparse
+                                        Neuron</button></li>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b2">Dense Soma</button>
+                                </li>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b3">Dense
+                                        Organelle</button></li>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b4">Dense
+                                        Mitochondria</button></li>
+                                <li><button type="button" class="btn btn-secondary bt-text" id="b5">Blood
+                                        Vessel</button></li>
+                        </div>
+                        <div class="sb-nav-link-icon">
+                            &nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-book-open"></i>
+                            &nbsp;Synapse
+                        </div>
+
+                        <div aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <ul>
+                                <li>
+                                    <button type="button" class="btn btn-secondary bt-text" id="b7">
+                                        Cleft</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-secondary bt-text" id="b6">1-to-1</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-secondary bt-text" id="b8">1-to-N</button>
+                                </li>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -75,33 +98,29 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
-    <div class="row justify-content-center" style="margin-top: 60px">
-        <div class="col"></div>
-        <div class="col-5">
+                        <div class="row justify-content-center" style="margin-top: 60px">
+                            <div class="col"></div>
+                            <div class="col-5">
 
-            <div class="row justify-content-center vis-container">
-                <div class="align-self-center" id="vis" style="height: 100%; width: 100%"></div>
-            </div>
-        </div>
+                                <div class="row justify-content-center vis-container">
+                                    <div class="align-self-center" id="vis" style="height: 100%; width: 100%"></div>
+                                </div>
+                            </div>
 
-        <div class="col"></div>
-    </div>
+                            <div class="col"></div>
+                        </div>
 
-                    </div>                        
+                    </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Connectomics Bazaar 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                            <div class="text-muted">Copyright &copy; PytorchConnectomics</div>
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
     </body>
+
 </html>

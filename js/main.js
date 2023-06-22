@@ -1,8 +1,8 @@
 
-window.onload = async function (){
+window.onload = async function () {
     const chartData = await d3.csv("./data/benchmark.csv", (d) => {
         let types = d.type.split(";");
-        types.sort((a, b) => {return a[0] - b[0]});
+        types.sort((a, b) => { return a[0] - b[0] });
 
         return {
             neuron: d.neuron,
@@ -14,7 +14,7 @@ window.onload = async function (){
             link: d.link
         }
     });
-    chartData.sort((a, b) => {return a.size - b.size});
+    chartData.sort((a, b) => { return a.size - b.size });
 
 
     let chart = new BaseChart("vis");
