@@ -91,6 +91,7 @@
 <div class="section materials">
 <h2>Updates from the Proceeding Version</h2>
 <ul>
+    <li>The MitoEM dataset is 1,986x bigger than the Lucchi dataset, instead of the 3,600x claimed in the paper. We mistakenly doubled the factor by plugging in only the size of the Lucchi test data. Lucchi dataset annotates two sub-volumes (each 165*1024*768 in voxels) from the 5*5*5 um image volume, and each of the two MitoEM volumes has 4096*4096*1000 voxels at the 8*8*30 nm resolution. Thus, the factor should be ((4096*4096*1000)*(8*8*30))  / ((165*1024*768)*(5*5*5)) \approx 1986.</li>
     <li>Sec. 2 "Dataset Acquisition": the human data is from the <b>temporal lobe</b> instead of the frontal lobe. The entire human dataset was introduced in <a href="https://www.biorxiv.org/content/10.1101/2021.05.29.446289v1">[Shapson-Coe et al. 2021]</a> </li>
     <li>After the proceeding, we did another round of annotation cleaning and improved the training of our 3D model. Please cite and compare with the following numbers, if you plan to use this dataset. [<a href="../../paper/2020_miccai_mitoEM_update.pdf">Descriptions</a>] [<a href="https://mitoem.grand-challenge.org/evaluation/challenge/leaderboard/">Leaderboard Results</a>]
     <center>
